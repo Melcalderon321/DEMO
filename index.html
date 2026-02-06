@@ -1166,6 +1166,16 @@
                 area.innerHTML += `<div class="msg ai">Entiendo tu consulta sobre <b>${msg}</b>. Basado en tu seguro Happ IA, tienes una cobertura preferencial en centros asociados. ¿Te gustaría que busque una clínica cerca de ti o prefieres revisar el detalle de tu póliza? 🏥</div>`;
                 area.scrollTop = area.scrollHeight;
                 lucide.createIcons();
+
+                // Add registration CTA after a brief delay
+                setTimeout(() => {
+                    area.innerHTML += `<div class="msg ai" style="background: linear-gradient(135deg, #0066FF 0%, #0052cc 100%); color: white; box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);">
+                        <b style="display: block; margin-bottom: 8px; font-size: 1.05rem;">Esto recién empieza.</b>
+                        <span style="display: block; margin-bottom: 16px; opacity: 0.95;">Registrate gratis y seguí tu salud en un solo lugar.</span>
+                        <button onclick="alert('Redirigiendo a registro...')" style="background: white; color: #0066FF; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 800; font-size: 0.9rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">Registrarme</button>
+                    </div>`;
+                    area.scrollTop = area.scrollHeight;
+                }, 800);
             }, 1000);
         }
 
