@@ -276,6 +276,22 @@
             }
         }
 
+        .pop-up-active {
+            animation: slideUpSticky 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards !important;
+        }
+
+        @keyframes slideUpSticky {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .btn-reg-white {
             background: white;
             color: var(--primary);
@@ -529,7 +545,7 @@
         /* --- Results Screen (Matching Image 4 & 5) --- */
         .results-page {
             flex: 1;
-            padding: 32px 24px 100px;
+            padding: 32px 24px 160px;
             background: white;
             overflow-y: auto;
         }
@@ -940,7 +956,7 @@
                         data-lucide="chevron-left"></i></button>
                 <b style="font-size:1.2rem;">Mi Reporte IA</b>
             </div>
-            <div class="results-page">
+            <div class="results-page" id="exam-scroll-area">
                 <img src="img/robot_stars_results.png" class="r-robot-img">
                 <h2 class="r-title">Tu reporte está listo</h2>
 
@@ -969,8 +985,17 @@
                     <p>Tu nivel de colesterol está ligeramente por encima de lo ideal. Te recomendamos programar una
                         consulta con tu médico para una evaluación preventiva y ajustes en tu dieta.</p>
                 </div>
-            </div>
 
+                <!-- CTA Marketing (In-flow) -->
+                <div id="exam-cta" class="hub-cta" style="margin-top: 32px; opacity: 1; transform: none;">
+                    <div>
+                        <b style="display:block; font-size:1.1rem; color: white;">Esto recién empieza.</b>
+                        <span style="font-size:0.85rem; opacity:0.9; color: white;">Registrate gratis<br>y seguí tu
+                            salud en un solo lugar.</span>
+                    </div>
+                    <button class="btn-reg-white">Registrarme</button>
+                </div>
+            </div>
         </div>
 
         <!-- --- PRESCRIPTION RESULTS (Image 5 style) --- -->
@@ -1020,9 +1045,20 @@
                     </tr>
                 </table>
 
-                <div class="r-reco" style="background:#f9f9f9; border-left-color: #eee;">
-                    <p style="color:#666;"><b>¿Sabías que puedes comprar bioequivalente?</b> Eso quiere decir que el ISP
-                        garantiza que es exactamente igual al de marca pero es más barato 💰</p>
+                <div class="r-reco">
+                    <h4>💡 ¿Sabías que puedes comprar bioequivalente?</h4>
+                    <p>Eso quiere decir que el ISP garantiza que es exactamente igual al de marca pero es más barato 💰
+                    </p>
+                </div>
+
+                <!-- CTA Marketing (In-flow) -->
+                <div class="hub-cta" style="margin-top: 32px; opacity: 1; transform: none;">
+                    <div>
+                        <b style="display:block; font-size:1.1rem; color: white;">Esto recién empieza.</b>
+                        <span style="font-size:0.85rem; opacity:0.9; color: white;">Registrate gratis<br>y seguí tu
+                            salud en un solo lugar.</span>
+                    </div>
+                    <button class="btn-reg-white">Registrarme</button>
                 </div>
             </div>
 
@@ -1101,6 +1137,9 @@
                     startCelebration();
                 } else {
                     nav('view-exam-results');
+                    // Reset scroll position
+                    const scrollArea = document.getElementById('exam-scroll-area');
+                    scrollArea.scrollTop = 0;
                 }
             }, 4500);
         }
